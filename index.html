@@ -9,13 +9,52 @@
 
         <link rel="stylesheet" href="css/stylesheet.css">
         <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
     
     <body>
-      <p>Hello world! </p>
+        <h1>Hello</h1>
+        <div id='main'>
+            <div>What do you want to do?</div>
+            <form id='AddTask'>
+                <input type='text' placeholder='Enter your tasks here'>
+                <input type='button' value='ADD'>
+            </form>
+
+            <div>Choose your working interval:</div>
+            <input type='button' id='5min' onclick='15min()' value='15min'>
+            <input type='button' id='25min' onclick='25min()' value='25min'>
+            <input type='button' id='35min' onclick='35min()' value='35min'>
+
+        </div>
+        <div>U've got time:</div>
+        <div id='countdown'>00:00</div>
+    
+        <div id='breakstuff'>
+        ARE YOU: <br>
+            <a target="_blank" href="http://www.yahoo.com">STRESSED?</a> <a target="_blank" href="http://www.yahoo.com">BORED?</a>
+        </div>
+
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>Nr.</th>
+                    <th>Task</th>
+                </tr>
+            </thead>
+            <tbody>
+  
+            </tbody>
+        </table>
+
+
+
+
+
+
+    <div id="footer">PZORG 2017</div>
         
-		<!-- Optional JavaScript -->
+		<!-- JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
