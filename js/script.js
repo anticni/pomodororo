@@ -10,9 +10,24 @@ function AddTable(){
     var idNext = 1+id++;
     cell1.innerHTML = idNext;
     cell2.innerHTML = document.getElementById("task").value;
+    debugger;
+    var checkbox = document.createElement("INPUT");
+    checkbox.type = "checkbox";
+    checkbox.id="checkbox";
+    // checkbox.value = "pair";
+    checkbox.setAttribute("onclick", "strike(this)");
+    var cell3 = row.insertCell(2);
+    cell3.appendChild(checkbox);
 
 //clearing text input after submitting
     document.getElementById("task").value = "";
+}
+function strike(elm) {
+    if(elm.checked) {
+        elm.parentNode.parentNode.setAttribute("style", "text-decoration: line-through;");
+    } else {
+        elm.parentNode.parentNode.setAttribute("style", "text-decoration: none;");
+    }
 }
 
 
@@ -69,8 +84,9 @@ function twentyfive(){
     display= document.querySelector("#countdown");
     startTimer(time, display);
 }
-
+// set to mere seconds for testing purposes
 function thirtyfive(){
+    document.getElementById("fifteen").style.display = "none";
     var time = 3,
     display= document.querySelector("#countdown");
     startTimer(time, display);
