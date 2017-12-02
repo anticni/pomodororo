@@ -10,7 +10,6 @@ function AddTable(){
     var idNext = 1+id++;
     cell1.innerHTML = idNext;
     cell2.innerHTML = document.getElementById("task").value;
-    debugger;
     var checkbox = document.createElement("INPUT");
     checkbox.type = "checkbox";
     checkbox.id="checkbox";
@@ -46,6 +45,9 @@ function startTimer(duration, display) {
             document.getElementById('countdown').innerHTML = "Take a break!";
 
             clearInterval(timing);
+            var audio = new Audio('throat_clear.mp3');
+            audio.play();
+            window.focus();
             takeiteasy();
             return;
 
@@ -105,8 +107,7 @@ function startBreak(duration, display) {
         seconds;
        
     function timepause() {
-        // get the number of seconds that have elapsed since 
-        // startTimer() was called
+ 
                  if (minutes == 0, seconds==0){
 
             console.log("done");
@@ -114,9 +115,14 @@ function startBreak(duration, display) {
             document.getElementById('takeabreak').innerHTML = "";
 
             clearInterval(timing);
-
+            
+            //play audio after break is over
+            var audio = new Audio('throat_clear.mp3');
+            audio.play();
+            window.focus();
             return;
-
+        // get the number of seconds that have elapsed since 
+        // startTimer() was called
         }
         diff = duration - (((Date.now() - start) / 1000) | 0);
 
