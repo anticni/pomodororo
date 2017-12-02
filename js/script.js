@@ -1,15 +1,19 @@
+//global id variable as so it can be saved and reused for next input   
+    var id= 0
 function AddTable(){
-    var id= 1
     var table = document.getElementById("table")
     var tableRef = document.getElementById("table").getElementsByTagName('tbody')[0];
   
     var row = tableRef.insertRow(tableRef.rows.length)
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
-    var idNext = id++;
+    var idNext = 1+id++;
     cell1.innerHTML = idNext;
     cell2.innerHTML = document.getElementById("task").value;
- 
+
+//clearing text input after submitting
+    document.getElementById("task").value = "";
+
 }
 
 function startTimer(duration, display) {
