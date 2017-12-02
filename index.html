@@ -15,10 +15,9 @@
 <div id='main'>
     <div id='counter'>
     <div>What do you want to do?</div>
-    <form id='AddTask' onsubmit='AddTable()'>
-        <input type='text' placeholder='Enter your tasks here'>
-        <input type='button' value='ADD'>
-    </form>
+        <input type='text' id="task" placeholder='Enter your tasks here' onKeyDown="if(event.keyCode==13) AddTable();">
+        <input type='button' value='ADD' onclick='AddTable()'>
+    
     <div>Choose your working interval:</div>
     <input type='button' id='5min' onclick='15min()' value='15min'>
     <input type='button' id='25min' onclick='25min()' value='25min'>
