@@ -1,0 +1,79 @@
+html, 
+body {
+    height: 100%;
+}
+
+body{
+	position: relative;
+  	margin: 0;
+
+}
+
+/*#footer {
+    position: absolute;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	padding: 1rem;
+  	background-color: #efefef;
+  	text-align: center;
+}*/
+
+#breakstuff{
+  margin-top:30px;
+  display: block
+}
+
+#main {
+        /*put the main to strach between header and footer*/
+        position: absolute;
+        top: 20%;
+        bottom: 20%;
+        right: 0px;
+        left: 0px;
+        }
+
+
+#footer {
+        /*put the footer in bottom 20% of the body*/
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 35%;
+        height: 20%;
+        /*centers the header's content both vertically and horizontally*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:antiquewhite;
+    }
+#counter {
+        /*put description div to take left side*/
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 60%;
+        /*centers the description's content both vertically and horizontally*/
+        text-align: center;
+    }
+
+#divider {
+        /*put divider div to take one pixel and strech vertically*/
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 60%;
+        width: 1px;
+        background-color: darkgrey;
+    }
+      
+  
+#tablediv {
+        /*put picture div to take right side*/
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 61%;
+        right: 0px;
+          
