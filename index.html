@@ -13,15 +13,30 @@
   <body>
     <h1>Hello</h1>
 <div id='main'>
-    <div id='counter'>
-    <div>What do you want to do?</div>
-        <input type='text' id="task" placeholder='Enter your tasks here' onKeyDown="if(event.keyCode==13) AddTable();">
-        <input type='button' value='ADD' onclick='AddTable()'>
+    <div id='left'>
     
-    <div>Choose your working interval:</div>
-    <input type='button' id='5min' onclick='fifteen()' value='15min'>
-    <input type='button' id='25min' onclick='twentyfive()' value='25min'>
-    <input type='button' id='35min' onclick='thirtyfive()' value='35min'>
+    
+   <!--  <div class="input-group">
+  <input type="text" class="form-control" placeholder="Search for...">
+  <span class="input-group-btn">
+    <button class="btn btn-default" type="submit">
+        <i class="fa fa-search"></i>
+    </button>
+  </span>
+</div> -->
+    
+    <div>What do you want to do?</div>
+    <div id="tasks" style="margin: 0 auto;" class="input-group col-6">
+    <input type='text' class="form-control" id="task" placeholder='Enter your tasks here' onKeyDown="if(event.keyCode==13) AddTable();">
+    <span class="input-group-btn">
+    <button value='ADD' class="btn btn-primary" onclick='AddTable()'>
+        <i class="fa fa-search"></i>
+    </button>
+    </div>
+    <div id="choice">Choose your working interval:</div>
+    <input type='button' id='5min' class="btn btn-primary" onclick='fifteen()' value='15min'>
+    <input type='button' id='25min' class="btn btn-primary" onclick='twentyfive()' value='25min'>
+    <input type='button' id='35min' class="btn btn-primary" onclick='thirtyfive()' value='35min'>
 
     
     <div id='countdown'></div>

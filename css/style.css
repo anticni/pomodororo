@@ -1,6 +1,25 @@
+/* Font from Google fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900');
+
+
+/* Color palette */
+
+/*$background-color: ;
+$footer-color: #003459;
+$details-color: #00A7E1;
+$font-color: #FAFAFA;
+$submit-color: #00CC73;
+$submit-color-darker: #00824A;
+
+*/
+
 html, 
 body {
     height: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #00171F;
+    color: #FAFAFA;
 }
 
 body{
@@ -21,7 +40,7 @@ body{
 */
 #breakstuff{
   margin-top:30px;
-  display: block;
+  display: none;
 }
 
 #main {
@@ -44,7 +63,7 @@ body{
         justify-content: center;
         color:antiquewhite;
     }
-#counter {
+#left {
         position: absolute;
         top: 0px;
         bottom: 0px;
@@ -61,7 +80,12 @@ body{
         width: 1px;
         background-color: darkgrey;
     }
-      
+
+#choice {
+  margin-top:30px;
+}
+
+
   
 #tablediv {
         position: absolute;
@@ -69,4 +93,93 @@ body{
         bottom: 0px;
         left: 61%;
         right: 0px;
-          
+}
+#countdown {
+        font-weight: bold;
+        font-size:300%;
+
+}
+#takeabreak {
+        font-weight: bold;
+        font-size:300%;
+
+}
+
+
+/* Form Styles */
+
+/*.form {
+  max-width: 610px;
+  margin: 60px auto;
+}
+
+.form__header {
+  margin-bottom: 40px;
+  border-bottom: 1px dashed rgba($font-color,.15);
+}
+
+.form__title {
+  font-size: 45px;
+  margin: 10px 0;
+}
+
+.form__instruction {
+  font-size: 22px;
+}
+
+.form__options {
+  border: none;
+  padding: 0;
+}
+
+.form__question {
+  font-size: 25px;
+}
+
+.form__answer {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 23%;
+  margin: 20px 1% 20px 0;
+  height: 180px;
+  vertical-align: top;
+  font-size: 22px;
+  text-align: center; 
+}
+
+label {
+  border: 1px solid rgba($font-color,.15);
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 10px 10px 30px 10px;
+  cursor: pointer;
+  opacity: .5;
+  transition: all .5s ease-in-out;
+  &:hover, &:focus, &:active {
+    border: 1px solid rgba($font-color,.5);
+  }
+}
+
+.form__button {
+  height: 40px;
+  border: none;
+  background-color: $submit-color;
+  color: $font-color;
+  text-transform: uppercase;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 0 20px;
+  border-radius: 20px;
+  font-weight: 900;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: all .25s ease-in-out;
+  &:hover, &:focus {
+    background-color: $submit-color-darker;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.25);
+    outline: none;
+  }
+}
+
+    
