@@ -5,15 +5,21 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  if (Notification.permission !== "granted")
+  if (Notification.permission !== "granted"){
     alert('Sorry, \nWe need permission for notifications so we can manage your workflow better. \n\nYou will only see this message once.');
     Notification.requestPermission();
+}
 });
 
 
 //global id variable as so it can be saved and reused for next input   
     var id= 0
 function AddTable(){
+    var task=document.getElementById("task")
+    if (task.value == '') {
+         window.alert("Please enter a task");
+    } else {
+
     var table = document.getElementById("table")
     var tableRef = document.getElementById("table").getElementsByTagName('tbody')[0];
   
@@ -33,19 +39,23 @@ function AddTable(){
 
 //clearing text input after submitting
     document.getElementById("task").value = "";
+//unhide timer part
+    document.getElementById("timers").style.display="block";
+//unhide table
+    document.getElementById("table").style.display="table";
 }
-
+}
 function strike(elm) {
     if(elm.checked) {
-        elm.parentNode.parentNode.setAttribute("style", "text-decoration: line-through;");
+        elm.parentNode.parentNode.setAttribute("style", "text-decoration: line-through; color:gray;");
     } else {
         elm.parentNode.parentNode.setAttribute("style", "text-decoration: none;");
     }
 }
 
 function notifyMeBreak() {
-  if (Notification.permission !== "granted")
-    Notification.requestPermission();
+  if (Notification.permission !== "granted"){
+    Notification.requestPermission();}
   else {
     var notification = new Notification('Hey', {
       icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
@@ -53,7 +63,7 @@ function notifyMeBreak() {
     });
 
     notification.onclick = function () {
-      window.focus();      
+    window.focus();      
     };
 
   }
@@ -86,11 +96,11 @@ function startTimer(duration, display) {
     function timer() {
         // get the number of seconds that have elapsed since 
         // startTimer() was called
-                 if (minutes == 0, seconds==0){
+                 if (diff==0){
 
             console.log("done");
             document.getElementById('countdown').innerHTML = "Take a break!";
-
+            document.getElementById("breakstuff").style.display="block";
             clearInterval(timing);
             var audio = new Audio('throat_clear.mp3');
             audio.play();
@@ -123,31 +133,6 @@ function startTimer(duration, display) {
     var timing = setInterval(timer, 1000);
 }
 
-function fifteen(){
-    var time = 60 * 15,
-    display= document.querySelector("#countdown");
-    startTimer(time, display);
-}
-
-function twentyfive(){
-    var time = 60 * 25,
-    display= document.querySelector("#countdown");
-    startTimer(time, display);
-}
-// set to mere seconds for testing purposes
-function thirtyfive(){
-    document.getElementById("fifteen").style.display = "none";
-    var time = 3,
-    display= document.querySelector("#countdown");
-    startTimer(time, display);
-}
-function takeiteasy(){
-    var time = 5
-    display= document.querySelector("#takeabreak");
-    startBreak(time, display);
-}
-
-
 function startBreak(duration, display) {
     var start = Date.now(),
         diff,
@@ -156,12 +141,12 @@ function startBreak(duration, display) {
        
     function timepause() {
  
-                 if (minutes == 0, seconds==0){
+                 if (diff==0){
 
             console.log("done");
             document.getElementById('countdown').innerHTML = "Do more?";
             document.getElementById('takeabreak').innerHTML = "";
-
+            document.getElementById("breakstuff").style.display="none";
             clearInterval(timing);
             
             //play audio after break is over
@@ -194,4 +179,46 @@ function startBreak(duration, display) {
     // we don't want to wait a full second before the timer starts
     timepause();
     var timing = setInterval(timepause, 1000);
+}
+
+function fifteen(){
+    document.getElementById("fifteen").style.display = "none";    
+    document.getElementById("thirtyfive").style.display = "none";
+    document.getElementById("twentyfive").style.display = "none";
+    document.getElementById("fifteen").value="Go!"
+    document.getElementById("choice").style.display = "none";
+    
+    var time = 60 * 15,
+    display= document.querySelector("#countdown");
+    startTimer(time, display);
+}
+
+function twentyfive(){
+    document.getElementById("fifteen").style.display = "none";
+    document.getElementById("thirtyfive").style.display = "none";
+    document.getElementById("twentyfive").style.display = "none";
+    document.getElementById("twentyfive").value="Go!"
+    document.getElementById("choice").style.display = "none";
+
+    var time = 60 * 25,
+    display= document.querySelector("#countdown");
+    startTimer(time, display);
+}
+// set to mere seconds for testing purposes
+function thirtyfive(){
+    document.getElementById("fifteen").style.display = "none";
+    document.getElementById("twentyfive").style.display = "none";
+    document.getElementById("thirtyfive").style.display = "none";
+    document.getElementById("thirtyfive").value="Go!"
+    document.getElementById("choice").style.display = "none";
+
+
+    var time = 5,
+    display= document.querySelector("#countdown");
+    startTimer(time, display);
+}
+function takeiteasy(){
+    var time = 60 * 5,
+    display= document.querySelector("#takeabreak");
+    startBreak(time, display);
 }

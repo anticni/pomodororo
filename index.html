@@ -9,11 +9,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
   </head>
   <body>
-    <h1>Hello</h1>
+    <br>
+    <h1 class="h1animation">Hello</h1>
 <div id='main'>
-    <div id='left'>
+    <div id='left' class="left-animation">
     
     
    <!--  <div class="input-group">
@@ -25,20 +27,22 @@
   </span>
 </div> -->
     
-    <div>What do you want to do?</div>
+    <div>What do you want to do?</div><br>
     <div id="tasks" style="margin: 0 auto;" class="input-group col-6">
     <input type='text' class="form-control" id="task" placeholder='Enter your tasks here' onKeyDown="if(event.keyCode==13) AddTable();">
     <span class="input-group-btn">
-    <button value='ADD' class="btn btn-primary" onclick='AddTable()'>
+    <button class="btn btn-primary" onclick='AddTable()'>Add
         <i class="fa fa-search"></i>
     </button>
     </div>
+    
+    <div id="timers">
     <div id="choice">Choose your working interval:</div>
     <input type='button' id='fifteen' class="btn btn-primary" onclick='fifteen()' value='15min'>
     <input type='button' id='twentyfive' class="btn btn-primary" onclick='twentyfive()' value='25min'>
     <input type='button' id='thirtyfive' class="btn btn-primary" onclick='thirtyfive()' value='35min'>
 
-    <div id="timers">
+    
     <div id='countdown'></div>
     <div id="takeabreak"></div>
     </div>
@@ -50,7 +54,7 @@
     <div id='divider'></div>
     
     <div id='tablediv'>
-    <table class="table table-hover table-bordered" id="table">
+    <table class="table table-hover table-sm" id="table">
     <thead>
       <tr>
         <th width="10%">Nr.</th>

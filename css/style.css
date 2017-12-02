@@ -28,16 +28,21 @@ body{
 
 }
 
-/*#footer {
+h1 {
+  margin-left:55px;
+}
+
+#footer {
     position: absolute;
   	right: 0;
   	bottom: 0;
   	left: 0;
   	padding: 1rem;
-  	background-color: #efefef;
+  	background-color: black;
+    color: white;
   	text-align: center;
 }
-*/
+
 #breakstuff{
   margin-top:30px;
   display: none;
@@ -52,17 +57,7 @@ body{
         }
 
 
-#footer {
-        position: absolute;
-        bottom: 0px;
-        left: 0px;
-        width: 35%;
-        height: 20%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color:antiquewhite;
-    }
+
 #left {
         position: absolute;
         top: 0px;
@@ -89,12 +84,13 @@ body{
   
 #tablediv {
         position: absolute;
-        top: 0px;
+        top: 50px;
         bottom: 0px;
         left: 61%;
         right: 0px;
 }
 #countdown {
+        margin-top:30px;
         font-weight: bold;
         font-size:300%;
 
@@ -104,82 +100,15 @@ body{
         font-size:300%;
 
 }
+#timers{
+  display:none;
+  align-content: center;
+  text-align: center;
+  margin-top:30px;
 
-
-/* Form Styles */
-
-/*.form {
-  max-width: 610px;
-  margin: 60px auto;
+}
+#table{
+  display:none;
 }
 
-.form__header {
-  margin-bottom: 40px;
-  border-bottom: 1px dashed rgba($font-color,.15);
-}
 
-.form__title {
-  font-size: 45px;
-  margin: 10px 0;
-}
-
-.form__instruction {
-  font-size: 22px;
-}
-
-.form__options {
-  border: none;
-  padding: 0;
-}
-
-.form__question {
-  font-size: 25px;
-}
-
-.form__answer {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 23%;
-  margin: 20px 1% 20px 0;
-  height: 180px;
-  vertical-align: top;
-  font-size: 22px;
-  text-align: center; 
-}
-
-label {
-  border: 1px solid rgba($font-color,.15);
-  box-sizing: border-box;
-  display: block;
-  height: 100%;
-  width: 100%;
-  padding: 10px 10px 30px 10px;
-  cursor: pointer;
-  opacity: .5;
-  transition: all .5s ease-in-out;
-  &:hover, &:focus, &:active {
-    border: 1px solid rgba($font-color,.5);
-  }
-}
-
-.form__button {
-  height: 40px;
-  border: none;
-  background-color: $submit-color;
-  color: $font-color;
-  text-transform: uppercase;
-  font-family: 'Source Sans Pro', sans-serif;
-  padding: 0 20px;
-  border-radius: 20px;
-  font-weight: 900;
-  cursor: pointer;
-  margin: 20px 0;
-  transition: all .25s ease-in-out;
-  &:hover, &:focus {
-    background-color: $submit-color-darker;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.25);
-    outline: none;
-  }
-}
-
-    
