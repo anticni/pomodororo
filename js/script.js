@@ -1,3 +1,16 @@
+// request notification permission on page load
+document.addEventListener('DOMContentLoaded', function () {
+  if (!Notification) {
+    alert('Desktop notifications not available in your browser. Try Chromium.'); 
+    return;
+  }
+
+  if (Notification.permission !== "granted")
+    alert('Sorry, \nWe need permission for notifications so we can manage your workflow better. \n\nYou will only see this message once.');
+    Notification.requestPermission();
+});
+
+
 //global id variable as so it can be saved and reused for next input   
     var id= 0
 function AddTable(){
@@ -21,6 +34,7 @@ function AddTable(){
 //clearing text input after submitting
     document.getElementById("task").value = "";
 }
+
 function strike(elm) {
     if(elm.checked) {
         elm.parentNode.parentNode.setAttribute("style", "text-decoration: line-through;");
@@ -29,6 +43,39 @@ function strike(elm) {
     }
 }
 
+function notifyMeBreak() {
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+  else {
+    var notification = new Notification('Hey', {
+      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+      body: "Take a break, relax!",
+    });
+
+    notification.onclick = function () {
+      window.focus();      
+    };
+
+  }
+
+}
+
+function notifyMeWork() {
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+  else {
+    var notification = new Notification('Hi', {
+      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+      body: "You need to start working!",
+    });
+
+    notification.onclick = function () {
+      window.focus();      
+    };
+
+  }
+
+}
 
 function startTimer(duration, display) {
     var start = Date.now(),
@@ -48,6 +95,7 @@ function startTimer(duration, display) {
             var audio = new Audio('throat_clear.mp3');
             audio.play();
             window.focus();
+            notifyMeBreak();
             takeiteasy();
             return;
 
@@ -119,6 +167,7 @@ function startBreak(duration, display) {
             //play audio after break is over
             var audio = new Audio('throat_clear.mp3');
             audio.play();
+            notifyMeWork();
             window.focus();
             return;
         // get the number of seconds that have elapsed since 
