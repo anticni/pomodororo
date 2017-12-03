@@ -101,6 +101,7 @@ function startTimer(duration, display) {
             console.log("done");
             document.getElementById('countdown').innerHTML = "Take a break!";
             document.getElementById("breakstuff").style.display="block";
+            document.getElementById("reminder").style.visibility="visible";
             clearInterval(timing);
             var audio = new Audio('throat_clear.mp3');
             audio.play();
@@ -147,6 +148,7 @@ function startBreak(duration, display) {
             document.getElementById('countdown').innerHTML = "Do more?";
             document.getElementById('takeabreak').innerHTML = "";
             document.getElementById("breakstuff").style.display="none";
+            document.getElementById("reminder").style.visibility="hidden";
             clearInterval(timing);
             
             if(document.getElementById("thirtyfive").value=="Go!"){
@@ -197,7 +199,7 @@ function fifteen(){
     document.getElementById("fifteen").value="Go!"
     document.getElementById("choice").style.display = "none";
     
-    var time = 2,
+    var time = 15 * 60,
     display= document.querySelector("#countdown");
     startTimer(time, display);
 }
@@ -209,7 +211,7 @@ function twentyfive(){
     document.getElementById("twentyfive").value="Go!"
     document.getElementById("choice").style.display = "none";
 
-    var time = 3,
+    var time = 25 *60,
     display= document.querySelector("#countdown");
     startTimer(time, display);
 }
@@ -222,12 +224,12 @@ function thirtyfive(){
     document.getElementById("choice").style.display = "none";
 
 
-    var time = 5,
+    var time = 35 * 60,
     display= document.querySelector("#countdown");
     startTimer(time, display);
 }
 function takeiteasy(){
-    var time = 5,
+    var time = 5*60,
     display= document.querySelector("#takeabreak");
     startBreak(time, display);
 }

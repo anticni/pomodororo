@@ -43,11 +43,7 @@ h1 {
   	text-align: center;
 }
 
-#breakstuff{
-  margin-top:30px;
-  display: none;
-  font-size: 150%;
-}
+
 
 #main {
         position: absolute;
@@ -85,7 +81,7 @@ h1 {
   
 #tablediv {
         position: absolute;
-        top: 45px;
+        top: 35px;
         bottom: 0px;
         left: 61%;
         right: 0px;
@@ -112,4 +108,30 @@ h1 {
   display:none;
 }
 
+#breakstuff{
+  margin-top:5px;
+  display: none;
+  position:relative;
+  align-content:left;
+  text-align: left;
+  float:left;
+  
+}
 
+#widgetmain{
+  font-family: 'Source Sans Pro', sans-serif;
+  float:left;
+  text-align:left;
+  overflow-y:auto;
+  overflow-x:hidden;
+  background-color:#transparent; 
+  width:400px;
+  margin-left:10px;
+}
+
+#reminder{
+  visibility: hidden;
+  font-size:90%;
+  text-align:center;
+  
+}
