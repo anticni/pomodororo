@@ -2,18 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900');
 
-
-/* Color palette */
-
-/*$background-color: ;
-$footer-color: #003459;
-$details-color: #00A7E1;
-$font-color: #FAFAFA;
-$submit-color: #00CC73;
-$submit-color-darker: #00824A;
-
-*/
-
 html, 
 body {
     height: 100%;
@@ -81,7 +69,7 @@ h1 {
   
 #tablediv {
         position: absolute;
-        top: 35px;
+        top: 20px;
         bottom: 0px;
         left: 61%;
         right: 0px;
@@ -130,6 +118,7 @@ h1 {
 }
 
 #reminder{
+  margin-bottom: 5px;
   visibility: hidden;
   font-size:90%;
   text-align:center;

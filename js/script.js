@@ -45,6 +45,7 @@ function AddTable(){
     document.getElementById("table").style.display="table";
 }
 }
+//function for line-through decoration on checkbox click
 function strike(elm) {
     if(elm.checked) {
         elm.parentNode.parentNode.setAttribute("style", "text-decoration: line-through; color:gray;");
@@ -53,6 +54,7 @@ function strike(elm) {
     }
 }
 
+//notification for taking a break
 function notifyMeBreak() {
   if (Notification.permission !== "granted"){
     Notification.requestPermission();}
@@ -70,6 +72,7 @@ function notifyMeBreak() {
 
 }
 
+//notification for work
 function notifyMeWork() {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
@@ -87,6 +90,7 @@ function notifyMeWork() {
 
 }
 
+//countdown for work intervals
 function startTimer(duration, display) {
     var start = Date.now(),
         diff,
@@ -134,6 +138,7 @@ function startTimer(duration, display) {
     var timing = setInterval(timer, 1000);
 }
 
+//countdown for break interval
 function startBreak(duration, display) {
     var start = Date.now(),
         diff,
@@ -192,6 +197,7 @@ function startBreak(duration, display) {
     var timing = setInterval(timepause, 1000);
 }
 
+//functions to call work timer by intervals
 function fifteen(){
     document.getElementById("fifteen").style.display = "none";    
     document.getElementById("thirtyfive").style.display = "none";
@@ -215,7 +221,7 @@ function twentyfive(){
     display= document.querySelector("#countdown");
     startTimer(time, display);
 }
-// set to mere seconds for testing purposes
+
 function thirtyfive(){
     document.getElementById("fifteen").style.display = "none";
     document.getElementById("twentyfive").style.display = "none";
@@ -229,7 +235,7 @@ function thirtyfive(){
     startTimer(time, display);
 }
 function takeiteasy(){
-    var time = 5*60,
+    var time = 5 * 60,
     display= document.querySelector("#takeabreak");
     startBreak(time, display);
 }
