@@ -58,7 +58,7 @@ function notifyMeBreak() {
     Notification.requestPermission();}
   else {
     var notification = new Notification('Hey', {
-      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+      icon: 'favicon.ico',
       body: "Take a break, relax!",
     });
 
@@ -75,7 +75,7 @@ function notifyMeWork() {
     Notification.requestPermission();
   else {
     var notification = new Notification('Hi', {
-      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+      icon: 'favicon.ico',
       body: "You need to start working!",
     });
 
@@ -149,11 +149,20 @@ function startBreak(duration, display) {
             document.getElementById("breakstuff").style.display="none";
             clearInterval(timing);
             
+            if(document.getElementById("thirtyfive").value=="Go!"){
+                    document.getElementById("thirtyfive").style.display="initial";
+            }
+            if(document.getElementById("twentyfive").value=="Go!"){
+                    document.getElementById("twentyfive").style.display="initial";
+            }
+            if(document.getElementById("fifteen").value=="Go!"){
+                    document.getElementById("fifteen").style.display="initial";
+            }
+
             //play audio after break is over
             var audio = new Audio('throat_clear.mp3');
             audio.play();
             notifyMeWork();
-            window.focus();
             return;
         // get the number of seconds that have elapsed since 
         // startTimer() was called
@@ -188,7 +197,7 @@ function fifteen(){
     document.getElementById("fifteen").value="Go!"
     document.getElementById("choice").style.display = "none";
     
-    var time = 60 * 15,
+    var time = 2,
     display= document.querySelector("#countdown");
     startTimer(time, display);
 }
@@ -200,7 +209,7 @@ function twentyfive(){
     document.getElementById("twentyfive").value="Go!"
     document.getElementById("choice").style.display = "none";
 
-    var time = 60 * 25,
+    var time = 3,
     display= document.querySelector("#countdown");
     startTimer(time, display);
 }
@@ -218,7 +227,7 @@ function thirtyfive(){
     startTimer(time, display);
 }
 function takeiteasy(){
-    var time = 60 * 5,
+    var time = 5,
     display= document.querySelector("#takeabreak");
     startBreak(time, display);
 }

@@ -46,6 +46,7 @@ h1 {
 #breakstuff{
   margin-top:30px;
   display: none;
+  font-size: 150%;
 }
 
 #main {
@@ -84,7 +85,7 @@ h1 {
   
 #tablediv {
         position: absolute;
-        top: 50px;
+        top: 45px;
         bottom: 0px;
         left: 61%;
         right: 0px;
@@ -92,19 +93,19 @@ h1 {
 #countdown {
         margin-top:30px;
         font-weight: bold;
-        font-size:300%;
+        font-size:350%;
 
 }
 #takeabreak {
         font-weight: bold;
-        font-size:300%;
+        font-size:350%;
 
 }
 #timers{
   display:none;
   align-content: center;
   text-align: center;
-  margin-top:30px;
+  margin-top:40px;
 
 }
 #table{
