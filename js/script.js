@@ -1,3 +1,5 @@
+
+
 // request notification permission on page load
 document.addEventListener('DOMContentLoaded', function () {
   if (!Notification) {
@@ -13,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //global id variable as so it can be saved and reused for next input   
-    var id= 0
+    var id= 0;
+    var callme = 0;
 function AddTable(){
     var task=document.getElementById("task")
     if (task.value == '') {
@@ -98,14 +101,41 @@ function startTimer(duration, display) {
         seconds;
        
     function timer() {
-        // get the number of seconds that have elapsed since 
-        // startTimer() was called
-                 if (diff==0){
+    //check if break timer is on
+        if(callme==1){
+            if (diff==0){
+            callme=0;
+            console.log("done");
+            document.getElementById('countdown').innerHTML = "Do more?";
+            document.getElementById('takeabreak').innerHTML = "";
+            document.getElementById("breakstuff").style.display="none";
+            document.getElementById("reminder").style.visibility="hidden";
+            clearInterval(timing);
+            
+            if(document.getElementById("thirtyfive").value=="Go!"){
+                    document.getElementById("thirtyfive").style.display="initial";
+            }
+            if(document.getElementById("twentyfive").value=="Go!"){
+                    document.getElementById("twentyfive").style.display="initial";
+            }
+            if(document.getElementById("fifteen").value=="Go!"){
+                    document.getElementById("fifteen").style.display="initial";
+            }
+
+            //play audio after break is over
+            var audio = new Audio('throat_clear.mp3');
+            audio.play();
+            notifyMeWork();
+            return;
+        }
+    }else{
+            if (diff==0){
 
             console.log("done");
             document.getElementById('countdown').innerHTML = "Take a break!";
             document.getElementById("breakstuff").style.display="block";
             document.getElementById("reminder").style.visibility="visible";
+            debugger;
             clearInterval(timing);
             var audio = new Audio('throat_clear.mp3');
             audio.play();
@@ -115,6 +145,7 @@ function startTimer(duration, display) {
             return;
 
         }
+}
         diff = duration - (((Date.now() - start) / 1000) | 0);
 
         // does the same job as parseInt truncates the float
@@ -138,64 +169,7 @@ function startTimer(duration, display) {
     var timing = setInterval(timer, 1000);
 }
 
-//countdown for break interval
-function startBreak(duration, display) {
-    var start = Date.now(),
-        diff,
-        minutes,
-        seconds;
-       
-    function timepause() {
- 
-                 if (diff==0){
 
-            console.log("done");
-            document.getElementById('countdown').innerHTML = "Do more?";
-            document.getElementById('takeabreak').innerHTML = "";
-            document.getElementById("breakstuff").style.display="none";
-            document.getElementById("reminder").style.visibility="hidden";
-            clearInterval(timing);
-            
-            if(document.getElementById("thirtyfive").value=="Go!"){
-                    document.getElementById("thirtyfive").style.display="initial";
-            }
-            if(document.getElementById("twentyfive").value=="Go!"){
-                    document.getElementById("twentyfive").style.display="initial";
-            }
-            if(document.getElementById("fifteen").value=="Go!"){
-                    document.getElementById("fifteen").style.display="initial";
-            }
-
-            //play audio after break is over
-            var audio = new Audio('throat_clear.mp3');
-            audio.play();
-            notifyMeWork();
-            return;
-        // get the number of seconds that have elapsed since 
-        // startTimer() was called
-        }
-        diff = duration - (((Date.now() - start) / 1000) | 0);
-
-        // does the same job as parseInt truncates the float
-        minutes = (diff / 60) | 0;
-        seconds = (diff % 60) | 0;
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds; 
-
-        if (diff <= 0) {
-            // add one second so that the count down starts at the full duration
-            // example 05:00 not 04:59
-            start = Date.now() + 1000;
-        }
-
-    };
-    // we don't want to wait a full second before the timer starts
-    timepause();
-    var timing = setInterval(timepause, 1000);
-}
 
 //functions to call work timer by intervals
 function fifteen(){
@@ -208,6 +182,7 @@ function fifteen(){
     var time = 15 * 60,
     display= document.querySelector("#countdown");
     startTimer(time, display);
+
 }
 
 function twentyfive(){
@@ -233,9 +208,11 @@ function thirtyfive(){
     var time = 35 * 60,
     display= document.querySelector("#countdown");
     startTimer(time, display);
+    callme=35;
 }
 function takeiteasy(){
     var time = 5 * 60,
     display= document.querySelector("#takeabreak");
-    startBreak(time, display);
+    startTimer(time, display);
+    callme= 1;
 }
